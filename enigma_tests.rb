@@ -4,4 +4,5 @@ require 'minitest/pride'
 require_relative './enigma'
 
 class Test < Minitest::Test
+  #  The enigma class will call the message
 end
