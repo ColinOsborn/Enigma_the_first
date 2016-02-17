@@ -1,8 +1,11 @@
-gem 'minitest', '~> 5.2'
+gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative './enigma'
 
-class Test < Minitest::Test
-  #  The enigma class will call the message
+class EncryptionTest < Minitest::Test
+  def test_message
+    hello = Enigma.new
+    assert_equal [7, 4, 11, 11, 14], hello.letters_to_number("hello")
+  end
 end
