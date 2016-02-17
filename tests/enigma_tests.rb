@@ -19,4 +19,8 @@ class EnigmaTest < Minitest::Test
     assert_equal [7, 4, 11, 11, 14], caps.letters_to_number("HELLO")
   end
 
+  # def test_encryption_results
+  #   returned = Enigma.new
+  #   assert_equal [74111114], returned.("hello")
+  # end
 end
