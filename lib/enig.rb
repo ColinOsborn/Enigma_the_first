@@ -5,7 +5,8 @@ class Enigma
   attr_reader :key, :message
 
   def initialize(key, message)
-    @key = key.chars.map { |l| cipher[l.downcase] }
+    @key = key
+    # .chars.map { |l| cipher[l.downcase] }
     @message = message
   end
 
@@ -14,20 +15,22 @@ class Enigma
   end
 
   #Remember to take into account for the cipher[39] +
-  # # 
-  def cipher_convert(letter)
-    cipher[letter]
+  # #
+  def key_generator
+    rand(10000..99999)
   end
 end
 
 if __FILE__ == $0
-  enigman = Enigma.new(ARGV[0], ARGV[1..-1].join(" "))
-  # puts Vigenere.encrypt_message
+  enigma = Enigma.new(ARGV[0], ARGV[1..-1].join(" "))
+    Enigma.encrypt_message
 end
 
-# The key here is 41521
-# A = 41, B = 15, c = 21
-
+rot5 = ->(text) do
+  alphabet = ("a".."z").to_a
+  key = Hash[alphabet.zip(alphabet.rotate(5))]
+  text.each_char.inject("") { |encrypted, char| encrypted + key[char] }
+end
 
 
 # date = Time.now.strftime("%d%m%Y")
