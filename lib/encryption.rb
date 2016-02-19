@@ -1,4 +1,5 @@
 require "pry"
+require_relative "offset"
 
 class Encryption
 
@@ -6,6 +7,6 @@ class Encryption
   end
 
   def encrypt
-    
+
   end
 end
