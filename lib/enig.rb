@@ -2,18 +2,21 @@ require "pry"
 require "date"
 
 class Enigma
+  attr_reader :key, :message
 
-  def initialize
+  def initialize(key, message)
+    @key = key.chars.map { |l| cipher[l.downcase] }
+    @message = message
+  end
+
+  def cipher
     @cipher = ('a'..'z').to_a + (0..9).to_a + [" ", ",", "."]
   end
 
-  def date
-    date = Time.now.strftime("%d%m%Y")
-    date.to_i * date.to_i
-  end
-
-  def date_split
-    date.to_s.to_split("")
+  #Remember to take into account for the cipher[39] +
+  # # 
+  def cipher_convert(letter)
+    cipher[letter]
   end
 end
 
