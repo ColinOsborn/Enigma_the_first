@@ -15,7 +15,11 @@ class Enigma
   def date_split
     date.to_s.to_split("")
   end
+end
 
+if __FILE__ == $0
+  enigman = Enigma.new(ARGV[0], ARGV[1..-1].join(" "))
+  # puts Vigenere.encrypt_message
 end
 
 # The key here is 41521
